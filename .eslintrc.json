@@ -16,5 +16,6 @@
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": "warn"
-  }
+  },
+  "ignorePatterns": ["build/**/*.js", "dist/**/*.js"]
 }
