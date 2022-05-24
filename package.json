@@ -4,7 +4,7 @@
   "author": "Rudi2e",
   "license": "MIT",
   "scripts": {
-    "pub": "tsc && rm -rf dist && mv build dist"
+    "pub": "tsc && mv -r build dist"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.21.0",
