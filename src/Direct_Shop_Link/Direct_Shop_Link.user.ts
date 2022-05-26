@@ -3,11 +3,11 @@
 // @description 쇼핑몰에 바로 접속할 수 있는 링크를 생성합니다.
 // @namespace   https://github.com/rudi2e
 // @author      Rudi2e
-// @version     0.1.0
+// @version     0.1.1
 // @license     MIT
-// @homepage    https://github.com/rudi2e/webbrowser-scripts
-// @updateURL   https://github.com/rudi2e/webbrowser-scripts/raw/main/dist/Direct_Shop_Link/Direct_Shop_Link.user.js
-// @downloadURL https://github.com/rudi2e/webbrowser-scripts/raw/main/dist/Direct_Shop_Link/Direct_Shop_Link.user.js
+// @homepage    https://github.com/rudi2e/userscripts
+// @updateURL   https://github.com/rudi2e/userscripts/raw/main/dist/Direct_Shop_Link/Direct_Shop_Link.user.js
+// @downloadURL https://github.com/rudi2e/userscripts/raw/main/dist/Direct_Shop_Link/Direct_Shop_Link.user.js
 // @match       https://www.ppomppu.co.kr/*
 // @match       https://m.ppomppu.co.kr/*
 // @match       https://quasarzone.com/*
