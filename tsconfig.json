@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    "baseUrl": "./src",
     "target": "es2020",
     "outDir": "./build",
-    "strict": true
+    "strict": true,
+    "sourceMap": true
   },
   "include": [
     "./src/**/*"
