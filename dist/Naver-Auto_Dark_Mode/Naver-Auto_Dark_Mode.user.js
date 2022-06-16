@@ -4,12 +4,12 @@
 // @description 브라우저의 다크 모드 설정에 따라서 자동으로 다크 모드로 전환합니다.
 // @namespace   https://github.com/rudi2e
 // @author      Rudi2e
-// @version     0.1.1
+// @version     0.1.2
 // @license     MIT
-// @homepage    https://github.com/rudi2e/webbrowser-scripts
+// @homepage    https://github.com/rudi2e/userscripts
 // @icon        https://www.naver.com/favicon.ico
-// @updateURL   https://github.com/rudi2e/webbrowser-scripts/raw/main/dist/Naver-Auto_Dark_Mode/Naver-Auto_Dark_Mode.user.js
-// @downloadURL https://github.com/rudi2e/webbrowser-scripts/raw/main/dist/Naver-Auto_Dark_Mode/Naver-Auto_Dark_Mode.user.js
+// @updateURL   https://github.com/rudi2e/userscripts/raw/main/dist/Naver-Auto_Dark_Mode/Naver-Auto_Dark_Mode.user.js
+// @downloadURL https://github.com/rudi2e/userscripts/raw/main/dist/Naver-Auto_Dark_Mode/Naver-Auto_Dark_Mode.user.js
 // @match       https://www.naver.com/
 // @noframes
 // ==/UserScript==
