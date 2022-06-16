@@ -3,7 +3,7 @@
 // @description 쇼핑몰에 바로 접속할 수 있는 링크를 생성합니다.
 // @namespace   https://github.com/rudi2e
 // @author      Rudi2e
-// @version     0.1.1
+// @version     0.1.2
 // @license     MIT
 // @homepage    https://github.com/rudi2e/userscripts
 // @updateURL   https://github.com/rudi2e/userscripts/raw/main/dist/Direct_Shop_Link/Direct_Shop_Link.user.js
@@ -21,15 +21,15 @@ void (function (W: Window, D: Document, L: Location): void {
   if (!GM_addStyle) throw Error('스크립트 실행에 필요한 권한이 없습니다.')
   GM_addStyle(
     `.direct_shop_link {
-    background-color: rgb(31, 31, 31) !important;
-    color: rgb(237, 237, 237) !important;
-    padding: 0.25rem 0.5rem !important;
-    margin: 0.25rem !important;
-    font-size: 1rem !important;
-    font-family: system-ui, -apple-system, ui-sans-serif, sans-serif !important;
-    display: inline-block !important;
-    border: solid 1px rgb(255, 255, 255) !important;
-  }`
+  background-color: rgb(31, 31, 31) !important;
+  color: rgb(237, 237, 237) !important;
+  padding: 0.25rem 0.5rem !important;
+  margin: 0.25rem !important;
+  font-size: 1rem !important;
+  font-family: system-ui, -apple-system, ui-sans-serif, sans-serif !important;
+  display: inline-block !important;
+  border: solid 1px rgb(255, 255, 255) !important;
+}`
   )
 
   const makeLink = (link: string, ele: HTMLElement): HTMLAnchorElement => {
@@ -52,7 +52,9 @@ void (function (W: Window, D: Document, L: Location): void {
       for (const i of links) {
         const fixedOrigUrl = i.href.replace(/%26%23160%3B$/, '')
         const searchParams = new URLSearchParams(fixedOrigUrl)
-        const [encode, target] = ['encode', 'target'].map((v) => searchParams.get(v))
+        const [encode, target]: Array<string | null> = ['encode', 'target'].map((v) =>
+          searchParams.get(v)
+        )
 
         if (encode === 'on' && target) {
           const fixedEncodeUrl = L.host === 'm.ppomppu.co.kr' ? target.replace(/\\/g, '') : target

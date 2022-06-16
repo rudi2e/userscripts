@@ -3,7 +3,7 @@
 // @description 브라우저의 다크 모드 설정에 따라서 자동으로 다크 모드로 전환합니다.
 // @namespace   https://github.com/rudi2e
 // @author      Rudi2e
-// @version     0.1.2
+// @version     0.1.3
 // @license     MIT
 // @homepage    https://github.com/rudi2e/userscripts
 // @icon        https://www.naver.com/favicon.ico
@@ -38,7 +38,7 @@ void (function (W: Window, D: Document, L: Location): void {
      */
     const switchMode = (mode?: boolean): void => {
       const nDarkMode: boolean | null =
-        mode === undefined ? (matchMode() ? null : darkMode.matches) : mode
+        mode !== undefined ? mode : matchMode() ? null : darkMode.matches
 
       if (typeof nDarkMode === 'boolean') {
         D.cookie = `NDARK=${nDarkMode ? 'Y' : 'N'}; domain=naver.com; max-age=31536000` // 1 Year
@@ -55,5 +55,5 @@ void (function (W: Window, D: Document, L: Location): void {
 })(window, document, location)
 
 interface HtmlDataset extends DOMStringMap {
-  dark: 'true' | 'false' | undefined
+  dark?: 'true' | 'false'
 }
