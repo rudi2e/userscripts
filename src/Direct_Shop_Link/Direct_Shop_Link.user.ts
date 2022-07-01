@@ -52,22 +52,22 @@ void (function (W: Window, D: Document, L: Location): void {
       for (const i of links) {
         const fixedOrigUrl = i.href.replace(/%26%23160%3B$/, '')
         const searchParams = new URLSearchParams(fixedOrigUrl)
-        const [encode, target]: Array<string | null> = ['encode', 'target'].map((v) =>
+        const [encode, target, idno]: Array<string | null> = ['encode', 'target', 'idno'].map((v) =>
           searchParams.get(v)
         )
 
-        if (encode === 'on' && target) {
-          const fixedEncodeUrl = L.host === 'm.ppomppu.co.kr' ? target.replace(/\\/g, '') : target
+        if (encode !== 'on' || !target || idno === 'ad') continue
 
-          try {
-            const url = W.atob(fixedEncodeUrl)
-            const urlo = new URL(url)
-            if (urlo.host !== 'www.ppomppu.co.kr' && urlo.host !== 'm.ppomppu.co.kr') {
-              makeLink(url, i)
-            }
-          } catch (e) {
-            cLog('오류가 발생했습니다.', e)
+        const fixedEncodeUrl = L.host === 'm.ppomppu.co.kr' ? target.replace(/\\/g, '') : target
+
+        try {
+          const url = W.atob(fixedEncodeUrl)
+          const urlo = new URL(url)
+          if (urlo.host !== 'www.ppomppu.co.kr' && urlo.host !== 'm.ppomppu.co.kr') {
+            makeLink(url, i)
           }
+        } catch (e) {
+          cLog('오류가 발생했습니다.', e)
         }
       }
     }
