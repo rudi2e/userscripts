@@ -87,7 +87,9 @@ void (function (W: Window, D: Document, L: Location): void {
     launch(D)
   } else if (L.host === 'quasarzone.com') {
     W.addEventListener('load', () => {
-      const links = D.querySelectorAll<HTMLAnchorElement>('a[href^="javascript:goToLink("]')
+      const links = D.querySelectorAll<HTMLAnchorElement>(
+        'a[href^="javascript:goToLink("]:not([data-direct-shop-link="true"])'
+      )
 
       for (const i of links) {
         const regexResult = /javascript:goToLink\(["'](.+)["']\)/.exec(i.href)
