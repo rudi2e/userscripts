@@ -3,7 +3,7 @@
 // @description 쇼핑몰에 바로 접속할 수 있는 링크를 생성합니다.
 // @namespace   https://github.com/rudi2e
 // @author      Rudi2e
-// @version     0.1.2
+// @version     0.1.3
 // @license     MIT
 // @homepage    https://github.com/rudi2e/userscripts
 // @updateURL   https://github.com/rudi2e/userscripts/raw/main/dist/Direct_Shop_Link/Direct_Shop_Link.user.js

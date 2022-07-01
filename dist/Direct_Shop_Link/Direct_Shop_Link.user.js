@@ -4,7 +4,7 @@
 // @description 쇼핑몰에 바로 접속할 수 있는 링크를 생성합니다.
 // @namespace   https://github.com/rudi2e
 // @author      Rudi2e
-// @version     0.1.2
+// @version     0.1.3
 // @license     MIT
 // @homepage    https://github.com/rudi2e/userscripts
 // @updateURL   https://github.com/rudi2e/userscripts/raw/main/dist/Direct_Shop_Link/Direct_Shop_Link.user.js
@@ -45,19 +45,19 @@ void (function (W, D, L) {
             for (const i of links) {
                 const fixedOrigUrl = i.href.replace(/%26%23160%3B$/, '');
                 const searchParams = new URLSearchParams(fixedOrigUrl);
-                const [encode, target] = ['encode', 'target'].map((v) => searchParams.get(v));
-                if (encode === 'on' && target) {
-                    const fixedEncodeUrl = L.host === 'm.ppomppu.co.kr' ? target.replace(/\\/g, '') : target;
-                    try {
-                        const url = W.atob(fixedEncodeUrl);
-                        const urlo = new URL(url);
-                        if (urlo.host !== 'www.ppomppu.co.kr' && urlo.host !== 'm.ppomppu.co.kr') {
-                            makeLink(url, i);
-                        }
+                const [encode, target, idno] = ['encode', 'target', 'idno'].map((v) => searchParams.get(v));
+                if (encode !== 'on' || !target || idno === 'ad')
+                    continue;
+                const fixedEncodeUrl = L.host === 'm.ppomppu.co.kr' ? target.replace(/\\/g, '') : target;
+                try {
+                    const url = W.atob(fixedEncodeUrl);
+                    const urlo = new URL(url);
+                    if (urlo.host !== 'www.ppomppu.co.kr' && urlo.host !== 'm.ppomppu.co.kr') {
+                        makeLink(url, i);
                     }
-                    catch (e) {
-                        cLog('오류가 발생했습니다.', e);
-                    }
+                }
+                catch (e) {
+                    cLog('오류가 발생했습니다.', e);
                 }
             }
         };
@@ -76,7 +76,7 @@ void (function (W, D, L) {
     }
     else if (L.host === 'quasarzone.com') {
         W.addEventListener('load', () => {
-            const links = D.querySelectorAll('a[href^="javascript:goToLink("]');
+            const links = D.querySelectorAll('a[href^="javascript:goToLink("]:not([data-direct-shop-link="true"])');
             for (const i of links) {
                 const regexResult = /javascript:goToLink\(["'](.+)["']\)/.exec(i.href);
                 if (regexResult && regexResult[1]) {
